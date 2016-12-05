@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ejb31" nsURI="http://de.mkonersmann.ejb31/1.0" nsPrefix="ejb">
+  <eClassifiers xsi:type="ecore:EClass" name="Client" abstract="true" eSuperTypes="#//IdentifiedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentEntry" eSuperTypes="#//IdentifiedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Archive" abstract="true" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" upperBound="-1"
+        eType="#//Container" eOpposite="#//Container/deployedArchives"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnterpriseArchive" eSuperTypes="#//Archive">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ejbArchives" upperBound="-1"
+        eType="#//EJBArchive" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyInformation" lowerBound="1"
+        eType="#//ApplicationAssemblyInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
+        eType="#//Library" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBArchive" eSuperTypes="#//Archive">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootPackages" lowerBound="1"
+        upperBound="-1" eType="#//EJBPackage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationAssemblyInformation" eSuperTypes="#//IdentifiedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//Archive">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootPackages" lowerBound="1"
+        upperBound="-1" eType="#//EJBPackage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
+        eType="#//ContainerService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deployedArchives" upperBound="-1"
+        eType="#//Archive" eOpposite="#//Archive/container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
+        eType="#//Client"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environmentEntries" upperBound="-1"
+        eType="#//EnvironmentEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerService" abstract="true" eSuperTypes="#//IdentifiedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityService" eSuperTypes="#//ContainerService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConcurrencyService" eSuperTypes="#//ContainerService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransactionService" eSuperTypes="#//ContainerService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SecondaryStorageService" eSuperTypes="#//ContainerService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnterpriseBean" abstract="true" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environmentEntries" upperBound="-1"
+        eType="#//EnvironmentEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceDependencies" upperBound="-1"
+        eType="#//ContainerService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beanReferences" upperBound="-1"
+        eType="#//BeanReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySpecs" eType="#//EnterpriseBeanSecurity"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatelessSessionBean" eSuperTypes="#//SessionBean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SessionBean" eSuperTypes="#//EnterpriseBean">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperationSignature"
+        upperBound="-1" eType="#//OperationSignature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="localBusinessInterfaces"
+        upperBound="-1" eType="#//LocalProvision" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperations" upperBound="-1"
+        eType="#//SessionBeanOperation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="remoteBusinessInterfaces"
+        upperBound="-1" eType="#//RemoteProvision" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instances" upperBound="-1"
+        eType="#//SessionBeanInstance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageDrivenBean" eSuperTypes="#//EnterpriseBean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="destinationType" lowerBound="1"
+        eType="#//DestinationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageSelectorEntries"
+        upperBound="-1" eType="#//MessageSelector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperationSignatures"
+        upperBound="-1" eType="#//OperationSignature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperations" upperBound="-1"
+        eType="#//MessageDrivenBeanOperation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatefulSessionBean" eSuperTypes="#//SessionBean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SingletonSessionBean" eSuperTypes="#//SessionBean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startup" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationSignature" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnJavaType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//OperationParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptions" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnApplicationType"
+        eType="#//DataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessInterface" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperationSignature"
+        upperBound="-1" eType="#//OperationSignature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BeanReference" abstract="true" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//Provision"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBReference" eSuperTypes="#//BeanReference">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="SessionBean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sessionbean" lowerBound="1"
+        eType="#//SessionBean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationParameter" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationDataType" eType="#//DataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalProvision" eSuperTypes="#//IdentifiedElement #//Provision">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" lowerBound="1"
+        eType="#//BusinessInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoteProvision" abstract="true" interface="true"
+      eSuperTypes="#//IdentifiedElement #//Provision">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" lowerBound="1"
+        eType="#//BusinessInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DestinationType">
+    <eLiterals name="NON_DURABLE_TOPIC"/>
+    <eLiterals name="QUEUE" value="1"/>
+    <eLiterals name="DURABLE_TOPIC" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageSelector" instanceClassName="java.util.Map$Entry"
+      eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperations" upperBound="-1"
+        eType="#//DataTypeOperation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
+        eType="#//OperationSignature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTypeOperation" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
+        eType="#//OperationSignature" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SessionBeanOperation" abstract="true"
+      eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preDestroy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postConstruct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prePassivate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postActivate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySpecs" eType="#//EnterpriseBeanOperationSecurity"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageDrivenBeanOperation" eSuperTypes="#//Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postConstruct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preDestroy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySpecs" eType="#//EnterpriseBeanOperationSecurity"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SynchronousOperation" eSuperTypes="#//SessionBeanOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsynchronousOperation" eSuperTypes="#//SessionBeanOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityBean" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//AbstractEntityAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//EntityBean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntityTypeReferenceMultiplicity">
+    <eLiterals name="ONE_TO_ONE"/>
+    <eLiterals name="ONE_TO_MANY" value="1"/>
+    <eLiterals name="MANY_TO_ONE" value="2"/>
+    <eLiterals name="MANY_TO_MANY" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractEntityAttribute" abstract="true"
+      eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaTypeAttribute" eSuperTypes="#//AbstractEntityAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" lowerBound="1"
+        eType="#//JavaTypeReferenceMultipicity" defaultValueLiteral="ONE_TO_ONE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityAttribute" eSuperTypes="#//AbstractEntityAttribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//EntityBean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" lowerBound="1"
+        eType="#//EntityTypeReferenceMultiplicity" defaultValueLiteral="ONE_TO_ONE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JavaTypeReferenceMultipicity">
+    <eLiterals name="ONE_TO_ONE"/>
+    <eLiterals name="ONE_TO_MANY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBPackage" eSuperTypes="#//IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beans" upperBound="-1"
+        eType="#//EnterpriseBean" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="#//BusinessInterface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataTypes" upperBound="-1"
+        eType="#//DataType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EJBPackage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifiedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Provision" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SessionBeanInstance">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="SessionBean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referenceinstances" upperBound="-1"
+        eType="#//EJBReferenceInstance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBReferenceInstance">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="SessionBean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ejbreference" lowerBound="1"
+        eType="#//EJBReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sessionbeaninstance" lowerBound="1"
+        eType="#//SessionBeanInstance"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnterpriseBeanSecurity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="permitAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="denyAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rolesAllowed" upperBound="-1"
+        eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rolesDeclared" upperBound="-1"
+        eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runAs" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnterpriseBeanOperationSecurity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="permitAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="denyAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rolesAllowed" upperBound="-1"
+        eType="#//Role"/>
+  </eClassifiers>
+  <eSubpackages name="packaging" nsURI="http://de.mkonersmann.ejb31.packaging/1.0"
+      nsPrefix="packaging"/>
+  <eSubpackages name="container" nsURI="http://de.mkonersmann.ejb31.container/1.0"
+      nsPrefix="container"/>
+  <eSubpackages name="beans" nsURI="http://de.mkonersmann.ejb31.beans/1.0" nsPrefix="beans"/>
+  <eSubpackages name="entities" nsURI="http://de.mkonersmann.ejb31.entities/1.0" nsPrefix="entities"/>
+</ecore:EPackage>

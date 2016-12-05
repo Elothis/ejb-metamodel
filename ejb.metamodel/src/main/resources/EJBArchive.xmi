@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb:EJBArchive
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ejb="http://de.mkonersmann.ejb31/1.0"
+    xsi:schemaLocation="http://de.mkonersmann.ejb31/1.0 ejb31.ecore"
+    name="BeanProject">
+  <rootPackages
+      name="beans">
+    <beans xsi:type="ejb:StatelessSessionBean"
+        name="TestBean">
+      <beanReferences
+          xsi:type="ejb:EJBReference"
+          sessionbean="//@rootPackages.0/@beans.1"/>
+    </beans>
+    <beans xsi:type="ejb:StatelessSessionBean"
+        name="ComplexBean"/>
+  </rootPackages>
+</ejb:EJBArchive>

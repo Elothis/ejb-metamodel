@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ejb.metamodel/src/main/java" editDirectory="/ejb.metamodel.edit/src/main/java"
+    editorDirectory="/ejb.metamodel.editor/src/main/java" modelPluginID="ejb.metamodel"
+    forceOverwrite="true" modelName="Ejb31" codeFormatting="true" commentFormatting="true"
+    testsDirectory="/ejb31.metamodel.tests/src/main/java" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" editPluginID="ejb.metamodel.edit"
+    editorPluginID="ejb.metamodel.editor">
+  <foreignModel>ejb31.ecore</foreignModel>
+  <genPackages prefix="Ejb31" basePackage="de.mkonersmann" disposableProviderFactory="true"
+      ecorePackage="ejb31.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ejb31.ecore#//DestinationType">
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//DestinationType/NON_DURABLE_TOPIC"/>
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//DestinationType/QUEUE"/>
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//DestinationType/DURABLE_TOPIC"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ejb31.ecore#//EntityTypeReferenceMultiplicity">
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//EntityTypeReferenceMultiplicity/ONE_TO_ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//EntityTypeReferenceMultiplicity/ONE_TO_MANY"/>
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//EntityTypeReferenceMultiplicity/MANY_TO_ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//EntityTypeReferenceMultiplicity/MANY_TO_MANY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ejb31.ecore#//JavaTypeReferenceMultipicity">
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//JavaTypeReferenceMultipicity/ONE_TO_ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ejb31.ecore#//JavaTypeReferenceMultipicity/ONE_TO_MANY"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//Client"/>
+    <genClasses ecoreClass="ejb31.ecore#//EnvironmentEntry"/>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//Archive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//Archive/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//Archive/container"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EnterpriseArchive">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseArchive/ejbArchives"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseArchive/assemblyInformation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseArchive/libraries"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EJBArchive">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBArchive/rootPackages"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//ApplicationAssemblyInformation"/>
+    <genClasses ecoreClass="ejb31.ecore#//Library">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//Library/rootPackages"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//Container/provides"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//Container/deployedArchives"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//Container/connectedTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//Container/environmentEntries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//ContainerService"/>
+    <genClasses ecoreClass="ejb31.ecore#//SecurityService"/>
+    <genClasses ecoreClass="ejb31.ecore#//ConcurrencyService"/>
+    <genClasses ecoreClass="ejb31.ecore#//TransactionService"/>
+    <genClasses ecoreClass="ejb31.ecore#//SecondaryStorageService"/>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//EnterpriseBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EnterpriseBean/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBean/environmentEntries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBean/serviceDependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBean/beanReferences"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBean/securitySpecs"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//StatelessSessionBean"/>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//SessionBean">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBean/ownedOperationSignature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBean/localBusinessInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBean/ownedOperations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBean/remoteBusinessInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBean/instances"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//MessageDrivenBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageDrivenBean/destinationType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//MessageDrivenBean/messageSelectorEntries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//MessageDrivenBean/ownedOperationSignatures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//MessageDrivenBean/ownedOperations"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//StatefulSessionBean"/>
+    <genClasses ecoreClass="ejb31.ecore#//SingletonSessionBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SingletonSessionBean/startup"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//OperationSignature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//OperationSignature/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//OperationSignature/returnJavaType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//OperationSignature/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//OperationSignature/exceptions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//OperationSignature/returnApplicationType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//BusinessInterface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//BusinessInterface/ownedOperationSignature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//BusinessInterface/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//BeanReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//BeanReference/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//BeanReference/description"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EJBReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBReference/sessionbean"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//OperationParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//OperationParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//OperationParameter/javaType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//OperationParameter/applicationDataType"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//LocalProvision">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//LocalProvision/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//RemoteProvision">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//RemoteProvision/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//MessageSelector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageSelector/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageSelector/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//DataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//DataType/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//DataType/superType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//DataType/ownedOperations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//Operation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//Operation/signature"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//DataTypeOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//DataTypeOperation/signature"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//SessionBeanOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/preDestroy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/postConstruct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/prePassivate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/postActivate"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBeanOperation/securitySpecs"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//MessageDrivenBeanOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageDrivenBeanOperation/postConstruct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageDrivenBeanOperation/preDestroy"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//MessageDrivenBeanOperation/securitySpecs"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//SynchronousOperation"/>
+    <genClasses ecoreClass="ejb31.ecore#//AsynchronousOperation"/>
+    <genClasses ecoreClass="ejb31.ecore#//EntityBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EntityBean/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EntityBean/attributes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EntityBean/superType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//AbstractEntityAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//AbstractEntityAttribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//JavaTypeAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//JavaTypeAttribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//JavaTypeAttribute/multiplicity"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EntityAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EntityAttribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EntityAttribute/multiplicity"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EJBPackage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBPackage/beans"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBPackage/interfaces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EJBPackage/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBPackage/dataTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBPackage/children"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//IdentifiedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//IdentifiedElement/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ejb31.ecore#//Provision"/>
+    <genClasses ecoreClass="ejb31.ecore#//SessionBeanInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanInstance/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBeanInstance/referenceinstances"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EJBReferenceInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBReferenceInstance/ejbreference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EJBReferenceInstance/sessionbeaninstance"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EnterpriseBeanSecurity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EnterpriseBeanSecurity/permitAll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EnterpriseBeanSecurity/denyAll"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBeanSecurity/rolesAllowed"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBeanSecurity/rolesDeclared"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBeanSecurity/runAs"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//Role/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ejb31.ecore#//EnterpriseBeanOperationSecurity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EnterpriseBeanOperationSecurity/permitAll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//EnterpriseBeanOperationSecurity/denyAll"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//EnterpriseBeanOperationSecurity/rolesAllowed"/>
+    </genClasses>
+    <nestedGenPackages prefix="Packaging" basePackage="de.mkonersmann.ejb31" disposableProviderFactory="true"
+        ecorePackage="ejb31.ecore#//packaging"/>
+    <nestedGenPackages prefix="Container" basePackage="de.mkonersmann.ejb31" disposableProviderFactory="true"
+        ecorePackage="ejb31.ecore#//container"/>
+    <nestedGenPackages prefix="Beans" basePackage="de.mkonersmann.ejb31" disposableProviderFactory="true"
+        ecorePackage="ejb31.ecore#//beans"/>
+    <nestedGenPackages prefix="Entities" basePackage="de.mkonersmann.ejb31" disposableProviderFactory="true"
+        ecorePackage="ejb31.ecore#//entities"/>
+  </genPackages>
+</genmodel:GenModel>
