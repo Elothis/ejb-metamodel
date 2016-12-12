@@ -4,16 +4,19 @@ package de.mkonersmann.ejb31.impl;
 
 import de.mkonersmann.ejb31.Ejb31Package;
 import de.mkonersmann.ejb31.EnterpriseBeanOperationSecurity;
+import de.mkonersmann.ejb31.Operation;
 import de.mkonersmann.ejb31.Role;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 

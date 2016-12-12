@@ -14,8 +14,6 @@ package de.mkonersmann.ejb31;
  * <em>Post Construct</em>}</li>
  * <li>{@link de.mkonersmann.ejb31.MessageDrivenBeanOperation#isPreDestroy
  * <em>Pre Destroy</em>}</li>
- * <li>{@link de.mkonersmann.ejb31.MessageDrivenBeanOperation#getSecuritySpecs
- * <em>Security Specs</em>}</li>
  * </ul>
  *
  * @see de.mkonersmann.ejb31.Ejb31Package#getMessageDrivenBeanOperation()
@@ -82,36 +80,5 @@ public interface MessageDrivenBeanOperation extends Operation {
 	 * @generated
 	 */
 	void setPreDestroy(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Security Specs</b></em>' containment
-	 * reference. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Security Specs</em>' containment reference
-	 * isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Security Specs</em>' containment reference.
-	 * @see #setSecuritySpecs(EnterpriseBeanOperationSecurity)
-	 * @see de.mkonersmann.ejb31.Ejb31Package#getMessageDrivenBeanOperation_SecuritySpecs()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EnterpriseBeanOperationSecurity getSecuritySpecs();
-
-	/**
-	 * Sets the value of the
-	 * '{@link de.mkonersmann.ejb31.MessageDrivenBeanOperation#getSecuritySpecs
-	 * <em>Security Specs</em>}' containment reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Security Specs</em>' containment
-	 *            reference.
-	 * @see #getSecuritySpecs()
-	 * @generated
-	 */
-	void setSecuritySpecs(EnterpriseBeanOperationSecurity value);
 
 } // MessageDrivenBeanOperation

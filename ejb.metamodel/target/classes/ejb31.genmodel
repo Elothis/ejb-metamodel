@@ -118,6 +118,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="ejb31.ecore#//Operation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//Operation/signature"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//Operation/securitySpecs"/>
     </genClasses>
     <genClasses ecoreClass="ejb31.ecore#//DataTypeOperation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ejb31.ecore#//DataTypeOperation/signature"/>
@@ -127,12 +128,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/postConstruct"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/prePassivate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//SessionBeanOperation/postActivate"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//SessionBeanOperation/securitySpecs"/>
     </genClasses>
     <genClasses ecoreClass="ejb31.ecore#//MessageDrivenBeanOperation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageDrivenBeanOperation/postConstruct"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ejb31.ecore#//MessageDrivenBeanOperation/preDestroy"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ejb31.ecore#//MessageDrivenBeanOperation/securitySpecs"/>
     </genClasses>
     <genClasses ecoreClass="ejb31.ecore#//SynchronousOperation"/>
     <genClasses ecoreClass="ejb31.ecore#//AsynchronousOperation"/>

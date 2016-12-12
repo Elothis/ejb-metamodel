@@ -1167,6 +1167,15 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 	 * 
 	 * @generated
 	 */
+	public EReference getOperation_SecuritySpecs() {
+		return (EReference) operationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getDataTypeOperation() {
 		return dataTypeOperationEClass;
 	}
@@ -1230,15 +1239,6 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 	 * 
 	 * @generated
 	 */
-	public EReference getSessionBeanOperation_SecuritySpecs() {
-		return (EReference) sessionBeanOperationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EClass getMessageDrivenBeanOperation() {
 		return messageDrivenBeanOperationEClass;
 	}
@@ -1259,15 +1259,6 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 	 */
 	public EAttribute getMessageDrivenBeanOperation_PreDestroy() {
 		return (EAttribute) messageDrivenBeanOperationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getMessageDrivenBeanOperation_SecuritySpecs() {
-		return (EReference) messageDrivenBeanOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1799,6 +1790,7 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 
 		operationEClass = createEClass(OPERATION);
 		createEReference(operationEClass, OPERATION__SIGNATURE);
+		createEReference(operationEClass, OPERATION__SECURITY_SPECS);
 
 		dataTypeOperationEClass = createEClass(DATA_TYPE_OPERATION);
 		createEReference(dataTypeOperationEClass, DATA_TYPE_OPERATION__SIGNATURE);
@@ -1808,12 +1800,10 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 		createEAttribute(sessionBeanOperationEClass, SESSION_BEAN_OPERATION__POST_CONSTRUCT);
 		createEAttribute(sessionBeanOperationEClass, SESSION_BEAN_OPERATION__PRE_PASSIVATE);
 		createEAttribute(sessionBeanOperationEClass, SESSION_BEAN_OPERATION__POST_ACTIVATE);
-		createEReference(sessionBeanOperationEClass, SESSION_BEAN_OPERATION__SECURITY_SPECS);
 
 		messageDrivenBeanOperationEClass = createEClass(MESSAGE_DRIVEN_BEAN_OPERATION);
 		createEAttribute(messageDrivenBeanOperationEClass, MESSAGE_DRIVEN_BEAN_OPERATION__POST_CONSTRUCT);
 		createEAttribute(messageDrivenBeanOperationEClass, MESSAGE_DRIVEN_BEAN_OPERATION__PRE_DESTROY);
-		createEReference(messageDrivenBeanOperationEClass, MESSAGE_DRIVEN_BEAN_OPERATION__SECURITY_SPECS);
 
 		synchronousOperationEClass = createEClass(SYNCHRONOUS_OPERATION);
 
@@ -2167,6 +2157,9 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 		initEReference(getOperation_Signature(), this.getOperationSignature(), null, "signature", null, 1, 1,
 				Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_SecuritySpecs(), this.getEnterpriseBeanOperationSecurity(), null, "securitySpecs",
+				null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataTypeOperationEClass, DataTypeOperation.class, "DataTypeOperation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2188,9 +2181,6 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 		initEAttribute(getSessionBeanOperation_PostActivate(), ecorePackage.getEBoolean(), "postActivate", "false", 0,
 				1, SessionBeanOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSessionBeanOperation_SecuritySpecs(), this.getEnterpriseBeanOperationSecurity(), null,
-				"securitySpecs", null, 0, 1, SessionBeanOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(messageDrivenBeanOperationEClass, MessageDrivenBeanOperation.class, "MessageDrivenBeanOperation",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2200,9 +2190,6 @@ public class Ejb31PackageImpl extends EPackageImpl implements Ejb31Package {
 		initEAttribute(getMessageDrivenBeanOperation_PreDestroy(), ecorePackage.getEBoolean(), "preDestroy", "false", 0,
 				1, MessageDrivenBeanOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMessageDrivenBeanOperation_SecuritySpecs(), this.getEnterpriseBeanOperationSecurity(), null,
-				"securitySpecs", null, 0, 1, MessageDrivenBeanOperation.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(synchronousOperationEClass, SynchronousOperation.class, "SynchronousOperation", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

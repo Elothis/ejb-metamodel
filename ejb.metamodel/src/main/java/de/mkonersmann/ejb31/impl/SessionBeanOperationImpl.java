@@ -29,8 +29,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <em>Pre Passivate</em>}</li>
  * <li>{@link de.mkonersmann.ejb31.impl.SessionBeanOperationImpl#isPostActivate
  * <em>Post Activate</em>}</li>
- * <li>{@link de.mkonersmann.ejb31.impl.SessionBeanOperationImpl#getSecuritySpecs
- * <em>Security Specs</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,17 +113,6 @@ public abstract class SessionBeanOperationImpl extends OperationImpl implements 
 	 * @ordered
 	 */
 	protected boolean postActivate = POST_ACTIVATE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSecuritySpecs() <em>Security
-	 * Specs</em>}' containment reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getSecuritySpecs()
-	 * @generated
-	 * @ordered
-	 */
-	protected EnterpriseBeanOperationSecurity securitySpecs;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -239,71 +226,6 @@ public abstract class SessionBeanOperationImpl extends OperationImpl implements 
 	 * 
 	 * @generated
 	 */
-	public EnterpriseBeanOperationSecurity getSecuritySpecs() {
-		return securitySpecs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetSecuritySpecs(EnterpriseBeanOperationSecurity newSecuritySpecs,
-			NotificationChain msgs) {
-		EnterpriseBeanOperationSecurity oldSecuritySpecs = securitySpecs;
-		securitySpecs = newSecuritySpecs;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS, oldSecuritySpecs, newSecuritySpecs);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setSecuritySpecs(EnterpriseBeanOperationSecurity newSecuritySpecs) {
-		if (newSecuritySpecs != securitySpecs) {
-			NotificationChain msgs = null;
-			if (securitySpecs != null)
-				msgs = ((InternalEObject) securitySpecs).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS, null, msgs);
-			if (newSecuritySpecs != null)
-				msgs = ((InternalEObject) newSecuritySpecs).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS, null, msgs);
-			msgs = basicSetSecuritySpecs(newSecuritySpecs, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS,
-					newSecuritySpecs, newSecuritySpecs));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS:
-			return basicSetSecuritySpecs(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -315,8 +237,6 @@ public abstract class SessionBeanOperationImpl extends OperationImpl implements 
 			return isPrePassivate();
 		case Ejb31Package.SESSION_BEAN_OPERATION__POST_ACTIVATE:
 			return isPostActivate();
-		case Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS:
-			return getSecuritySpecs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -340,9 +260,6 @@ public abstract class SessionBeanOperationImpl extends OperationImpl implements 
 			return;
 		case Ejb31Package.SESSION_BEAN_OPERATION__POST_ACTIVATE:
 			setPostActivate((Boolean) newValue);
-			return;
-		case Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS:
-			setSecuritySpecs((EnterpriseBeanOperationSecurity) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -368,9 +285,6 @@ public abstract class SessionBeanOperationImpl extends OperationImpl implements 
 		case Ejb31Package.SESSION_BEAN_OPERATION__POST_ACTIVATE:
 			setPostActivate(POST_ACTIVATE_EDEFAULT);
 			return;
-		case Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS:
-			setSecuritySpecs((EnterpriseBeanOperationSecurity) null);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -391,8 +305,6 @@ public abstract class SessionBeanOperationImpl extends OperationImpl implements 
 			return prePassivate != PRE_PASSIVATE_EDEFAULT;
 		case Ejb31Package.SESSION_BEAN_OPERATION__POST_ACTIVATE:
 			return postActivate != POST_ACTIVATE_EDEFAULT;
-		case Ejb31Package.SESSION_BEAN_OPERATION__SECURITY_SPECS:
-			return securitySpecs != null;
 		}
 		return super.eIsSet(featureID);
 	}

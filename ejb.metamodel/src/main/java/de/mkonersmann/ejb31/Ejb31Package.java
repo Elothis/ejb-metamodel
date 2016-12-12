@@ -1768,13 +1768,22 @@ public interface Ejb31Package extends EPackage {
 	int OPERATION__SIGNATURE = IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Security Specs</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__SECURITY_SPECS = IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Operation</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
+	int OPERATION_FEATURE_COUNT = IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -1845,6 +1854,15 @@ public interface Ejb31Package extends EPackage {
 	int SESSION_BEAN_OPERATION__SIGNATURE = OPERATION__SIGNATURE;
 
 	/**
+	 * The feature id for the '<em><b>Security Specs</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SESSION_BEAN_OPERATION__SECURITY_SPECS = OPERATION__SECURITY_SPECS;
+
+	/**
 	 * The feature id for the '<em><b>Pre Destroy</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1881,22 +1899,13 @@ public interface Ejb31Package extends EPackage {
 	int SESSION_BEAN_OPERATION__POST_ACTIVATE = OPERATION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Security Specs</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int SESSION_BEAN_OPERATION__SECURITY_SPECS = OPERATION_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Session Bean
 	 * Operation</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SESSION_BEAN_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 5;
+	int SESSION_BEAN_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -1929,6 +1938,15 @@ public interface Ejb31Package extends EPackage {
 	int MESSAGE_DRIVEN_BEAN_OPERATION__SIGNATURE = OPERATION__SIGNATURE;
 
 	/**
+	 * The feature id for the '<em><b>Security Specs</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_DRIVEN_BEAN_OPERATION__SECURITY_SPECS = OPERATION__SECURITY_SPECS;
+
+	/**
 	 * The feature id for the '<em><b>Post Construct</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1947,22 +1965,13 @@ public interface Ejb31Package extends EPackage {
 	int MESSAGE_DRIVEN_BEAN_OPERATION__PRE_DESTROY = OPERATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Security Specs</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE_DRIVEN_BEAN_OPERATION__SECURITY_SPECS = OPERATION_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Message Driven Bean
 	 * Operation</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_DRIVEN_BEAN_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 3;
+	int MESSAGE_DRIVEN_BEAN_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -1993,6 +2002,15 @@ public interface Ejb31Package extends EPackage {
 	 * @ordered
 	 */
 	int SYNCHRONOUS_OPERATION__SIGNATURE = SESSION_BEAN_OPERATION__SIGNATURE;
+
+	/**
+	 * The feature id for the '<em><b>Security Specs</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SYNCHRONOUS_OPERATION__SECURITY_SPECS = SESSION_BEAN_OPERATION__SECURITY_SPECS;
 
 	/**
 	 * The feature id for the '<em><b>Pre Destroy</b></em>' attribute. <!--
@@ -2029,15 +2047,6 @@ public interface Ejb31Package extends EPackage {
 	 * @ordered
 	 */
 	int SYNCHRONOUS_OPERATION__POST_ACTIVATE = SESSION_BEAN_OPERATION__POST_ACTIVATE;
-
-	/**
-	 * The feature id for the '<em><b>Security Specs</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONOUS_OPERATION__SECURITY_SPECS = SESSION_BEAN_OPERATION__SECURITY_SPECS;
 
 	/**
 	 * The number of structural features of the '<em>Synchronous Operation</em>'
@@ -2079,6 +2088,15 @@ public interface Ejb31Package extends EPackage {
 	int ASYNCHRONOUS_OPERATION__SIGNATURE = SESSION_BEAN_OPERATION__SIGNATURE;
 
 	/**
+	 * The feature id for the '<em><b>Security Specs</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCHRONOUS_OPERATION__SECURITY_SPECS = SESSION_BEAN_OPERATION__SECURITY_SPECS;
+
+	/**
 	 * The feature id for the '<em><b>Pre Destroy</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2113,15 +2131,6 @@ public interface Ejb31Package extends EPackage {
 	 * @ordered
 	 */
 	int ASYNCHRONOUS_OPERATION__POST_ACTIVATE = SESSION_BEAN_OPERATION__POST_ACTIVATE;
-
-	/**
-	 * The feature id for the '<em><b>Security Specs</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCHRONOUS_OPERATION__SECURITY_SPECS = SESSION_BEAN_OPERATION__SECURITY_SPECS;
 
 	/**
 	 * The number of structural features of the '<em>Asynchronous
@@ -3604,6 +3613,19 @@ public interface Ejb31Package extends EPackage {
 	EReference getOperation_Signature();
 
 	/**
+	 * Returns the meta object for the containment reference
+	 * '{@link de.mkonersmann.ejb31.Operation#getSecuritySpecs <em>Security
+	 * Specs</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Security
+	 *         Specs</em>'.
+	 * @see de.mkonersmann.ejb31.Operation#getSecuritySpecs()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_SecuritySpecs();
+
+	/**
 	 * Returns the meta object for class
 	 * '{@link de.mkonersmann.ejb31.DataTypeOperation <em>Data Type
 	 * Operation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -3687,19 +3709,6 @@ public interface Ejb31Package extends EPackage {
 	EAttribute getSessionBeanOperation_PostActivate();
 
 	/**
-	 * Returns the meta object for the containment reference
-	 * '{@link de.mkonersmann.ejb31.SessionBeanOperation#getSecuritySpecs
-	 * <em>Security Specs</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Security
-	 *         Specs</em>'.
-	 * @see de.mkonersmann.ejb31.SessionBeanOperation#getSecuritySpecs()
-	 * @see #getSessionBeanOperation()
-	 * @generated
-	 */
-	EReference getSessionBeanOperation_SecuritySpecs();
-
-	/**
 	 * Returns the meta object for class
 	 * '{@link de.mkonersmann.ejb31.MessageDrivenBeanOperation <em>Message
 	 * Driven Bean Operation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
@@ -3735,19 +3744,6 @@ public interface Ejb31Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMessageDrivenBeanOperation_PreDestroy();
-
-	/**
-	 * Returns the meta object for the containment reference
-	 * '{@link de.mkonersmann.ejb31.MessageDrivenBeanOperation#getSecuritySpecs
-	 * <em>Security Specs</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Security
-	 *         Specs</em>'.
-	 * @see de.mkonersmann.ejb31.MessageDrivenBeanOperation#getSecuritySpecs()
-	 * @see #getMessageDrivenBeanOperation()
-	 * @generated
-	 */
-	EReference getMessageDrivenBeanOperation_SecuritySpecs();
 
 	/**
 	 * Returns the meta object for class
@@ -5029,6 +5025,15 @@ public interface Ejb31Package extends EPackage {
 		EReference OPERATION__SIGNATURE = eINSTANCE.getOperation_Signature();
 
 		/**
+		 * The meta object literal for the '<em><b>Security Specs</b></em>'
+		 * containment reference feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference OPERATION__SECURITY_SPECS = eINSTANCE.getOperation_SecuritySpecs();
+
+		/**
 		 * The meta object literal for the
 		 * '{@link de.mkonersmann.ejb31.impl.DataTypeOperationImpl <em>Data Type
 		 * Operation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -5093,15 +5098,6 @@ public interface Ejb31Package extends EPackage {
 		EAttribute SESSION_BEAN_OPERATION__POST_ACTIVATE = eINSTANCE.getSessionBeanOperation_PostActivate();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Specs</b></em>'
-		 * containment reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference SESSION_BEAN_OPERATION__SECURITY_SPECS = eINSTANCE.getSessionBeanOperation_SecuritySpecs();
-
-		/**
 		 * The meta object literal for the
 		 * '{@link de.mkonersmann.ejb31.impl.MessageDrivenBeanOperationImpl
 		 * <em>Message Driven Bean Operation</em>}' class. <!-- begin-user-doc
@@ -5129,16 +5125,6 @@ public interface Ejb31Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute MESSAGE_DRIVEN_BEAN_OPERATION__PRE_DESTROY = eINSTANCE.getMessageDrivenBeanOperation_PreDestroy();
-
-		/**
-		 * The meta object literal for the '<em><b>Security Specs</b></em>'
-		 * containment reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference MESSAGE_DRIVEN_BEAN_OPERATION__SECURITY_SPECS = eINSTANCE
-				.getMessageDrivenBeanOperation_SecuritySpecs();
 
 		/**
 		 * The meta object literal for the
